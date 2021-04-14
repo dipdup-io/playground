@@ -5,7 +5,7 @@ const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development
 module.exports = {
   mode: mode,
   entry: {
-    'graphqli-explorer-page': './src/graphqli-explorer-page.jsx'
+    'graphiql-explorer-page': './src/graphiql-explorer-page.jsx'
   },
   output: {
     filename: 'js/[name].js'
