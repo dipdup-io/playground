@@ -7,7 +7,7 @@ import "graphiql/graphiql.css";
 
 const fetcher = params => {
   return fetch(
-    `https://dipdup.net/v1/graphql`,
+    `https://sandbox.dipdup.net/graphql`,
     {
       method: 'post',
       headers: {
