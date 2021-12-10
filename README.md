@@ -131,7 +131,6 @@ async def on_balance_update(
 ) -> None:
     holder, _ = await models.Holder.get_or_create(address=address)
     holder.balance += balance_update
-    holder.turnover += abs(balance_update)
     holder.tx_count += 1
     holder.last_seen = timestamp
     assert holder.balance >= 0, address
