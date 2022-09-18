@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DipDup Playground</title>
+  <meta charset=utf-8>
+  <meta http-equiv=X-UA-Compatible content="IE=edge">
+  <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta data-vmid="description" name="description" content="Interactive GraphQL explorer for DipDup-based indexers">
+  <meta name="image" content="https://play.dipdup.io/img/og.png">
+  <meta name="twitter:title" content="DipDup Playground">
+  <meta name="twitter:description" content="Interactive GraphQL explorer for DipDup-based indexers">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://play.dipdup.io/img/og.png">
+  <meta name="twitter:url" content="https://play.dipdup.io/">
+  <meta name="twitter:site" content="@primarykeylab">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DipDup Playground">
+  <meta property="og:description" content="Interactive GraphQL explorer for DipDup-based indexers">
+  <meta property="og:image" content="https://play.dipdup.io/img/og.png">
+  <meta property="og:url" content="https://play.dipdup.io/">
+  <meta property="og:site_name" content="DipDup Playground">
+  <meta itemprop="name" content="DipDup Playground">
+  <meta itemprop="description" content="Interactive GraphQL explorer for DipDup-based indexers">
+  <meta itemprop="image" content="https://play.dipdup.io/img/og.png">
+  <link rel=icon href=img/favicon.ico>
+  <link rel="stylesheet" href="css/app.css" type="text/css">
+</head>
+<body>
+  <div class="body-wrap">
+    <div class="nav-wrap" style="display: flex;">
+      <a href="https://dipdup.io"><img src="img/dipdup.png" height="28px"/></a>
+      <span style="margin-left: 15px; margin-top: 1px; font-family: monospace;">:: playground</span>
+    </div>
+    <div class="endpoint-wrap">
+      <div class="method">POST</div>
+      <select id="endpoint">
+        <option selected>https://metadata.dipdup.net/v1/graphql</option>
+        <option>https://mempool.dipdup.net/v1/graphql</option>
+        <option>https://dex.dipdup.net/v1/graphql</option>
+        <option>https://domains.dipdup.net/v1/graphql</option>
+        <option>https://quartz.dipdup.net/v1/graphql</option>
+      </select>
+    </div>
+    <div id="graphiql"></div>
+  </div>
+  <script src="js/graphiql-explorer-page.js"></script>
+</body>
+</html>
