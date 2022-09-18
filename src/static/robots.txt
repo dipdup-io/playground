@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: https://dipdup.net/sitemap.xml
+Sitemap: https://play.dipdup.io/sitemap.xml

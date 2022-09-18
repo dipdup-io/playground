@@ -54,11 +54,30 @@ body {
   align-items: center;
 }
 
-.endpoint-wrap > .url {
-  padding-left: 15px;
-  height: 100%;
+select {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  border:0!important;
+  background: #f0f0f0;
+  background-image: none;
+  flex: 1;
+  padding: .5em 1.5em;
+  color:#000;
+  cursor:pointer;
+  font-size: 1em;
+  font-family: monospace;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
   display: flex;
-  align-items: center;
+  background: #f0f0f0;
+  overflow: hidden;
 }
 
 .doc-explorer-title {

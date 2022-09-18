@@ -4,16 +4,11 @@ import { buildClientSchema, getIntrospectionQuery, parse } from "graphql";
 import GraphiQL from "graphiql";
 import GraphiQLExplorer from "graphiql-explorer";
 import "graphiql/graphiql.css";
-import "./static/css/app.css"
 import "./static/css/graphiql.css"
 
 const getGQLEndpoint = function() {
-  const res = /service=([^&]+)/.exec(location.search);
-  if (res && res.length == 2) {
-    return `https://${res[1]}.dipdup.net/v1/graphql`;
-  } else {
-    return 'https://metadata.dipdup.net/v1/graphql';
-  }
+  console.log(document.getElementById('endpoint').value)
+  return document.getElementById('endpoint').value;
 }
 
 const fetcher = params => {
@@ -55,22 +50,40 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.getElementById("endpoint").innerText = getGQLEndpoint();
-    setTimeout(() => {
-      if (this.state.schema === null) {
-        this.setState({
-          loading_schema: true,
-        });
+    var select = document.getElementById('endpoint');
+    const res = /endpoint=([^&]+)/.exec(location.search);
+    if (res && res.length == 2) {
+      const endpoint = res[1];
+      if (!select.innerText.includes(endpoint)) {
+        var opt = document.createElement('option');
+        opt.value = endpoint;
+        opt.innerHTML = endpoint;
+        select.appendChild(opt);
       }
-    }, ZERO_INFO_PATIENCE_MS);
-    fetcher({
-      query: getIntrospectionQuery()
-    }).then(result => {
-      this.setState({
-        schema: buildClientSchema(result.data),
-        loading_schema: false,
+      select.value = endpoint;
+    }
+
+    const initialize = () => {
+      setTimeout(() => {
+        if (this.state.schema === null) {
+          this.setState({
+            loading_schema: true,
+          });
+        }
+      }, ZERO_INFO_PATIENCE_MS);
+      
+      fetcher({
+        query: getIntrospectionQuery()
+      }).then(result => {
+        this.setState({
+          schema: buildClientSchema(result.data),
+          loading_schema: false,
+        });
       });
-    });
+    }
+
+    select.onchange = initialize;
+    initialize();
   }
 
   _handleEditQuery = query => {
